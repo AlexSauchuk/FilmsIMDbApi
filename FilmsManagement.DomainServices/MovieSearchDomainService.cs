@@ -30,5 +30,15 @@ namespace FilmsManagement.DomainServices
         {
             return _searchRepository.SearchSeriesByTitleAsync(searchQuery, cancellationToken);
         }
+
+        public Task<MovieWikipedia> SearchMovieWikipediaAsync(string searchQuery, CancellationToken cancellationToken)
+        {
+            return _searchRepository.GetFilmWikipedia(searchQuery, cancellationToken);
+        }
+
+        public Task<MoviePoster> SearchMoviePosterAsync(string searchQuery, CancellationToken cancellationToken)
+        {
+            return _searchRepository.GetFilmPoster(searchQuery, cancellationToken);
+        }
     }
 }

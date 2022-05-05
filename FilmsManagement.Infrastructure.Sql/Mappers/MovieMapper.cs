@@ -1,10 +1,17 @@
-﻿using FilmsManagement.Domain.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using FilmsManagement.Domain.Models;
 using FilmsManagement.Infrastructure.Sql.DataModels;
 
 namespace FilmsManagement.Infrastructure.Sql.Mappers
 {
     public static class MovieMapper
     {
+        public static IReadOnlyList<IMovie> ToDomainModel(this IEnumerable<FilmModel> models)
+        {
+            return models?.Select(ToDomainModel).ToList();
+        }
+
         public static IMovie ToDomainModel(this FilmModel model)
         {
             return new Film

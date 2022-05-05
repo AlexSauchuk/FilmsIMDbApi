@@ -12,5 +12,9 @@ namespace FilmsManagement.DomainServices.Core
         Task<IReadOnlyList<IBaseMovie>> SearchFilmsAsync(string searchQuery, CancellationToken cancellationToken);
 
         Task<IReadOnlyList<IBaseMovie>> SearchSeriesAsync(string searchQuery, CancellationToken cancellationToken);
+
+        Task<MovieWikipedia> SearchMovieWikipediaAsync(string searchQuery, CancellationToken cancellationToken);
+
+        Task<MoviePoster> SearchMoviePosterAsync(string searchQuery, CancellationToken cancellationToken);
     }
 }

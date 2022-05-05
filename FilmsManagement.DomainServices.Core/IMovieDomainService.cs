@@ -7,5 +7,7 @@ namespace FilmsManagement.DomainServices.Core
     public interface IMovieDomainService
     {
         Task<IMovie> GetMovieById(string id, CancellationToken cancellationToken);
+
+        Task<IMovie> FindMovieById(string id, CancellationToken cancellationToken);
     }
 }

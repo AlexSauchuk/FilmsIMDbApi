@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using FilmsManagement.Domain;
 using FilmsManagement.Domain.Models;
 
 namespace FilmsManagement.DomainServices.Core
@@ -12,5 +13,7 @@ namespace FilmsManagement.DomainServices.Core
         Task AddMovieToUserWatchList(string userId, string movieId, CancellationToken cancellationToken);
 
         Task MarkMovieInWatchListAsync(string userId, string movieId, CancellationToken cancellationToken);
+
+        Task<UserNotificationResponse> CheckNotificationForUser(User user, CancellationToken cancellationToken);
     }
 }

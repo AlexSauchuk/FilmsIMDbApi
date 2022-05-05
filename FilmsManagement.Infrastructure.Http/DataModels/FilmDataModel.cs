@@ -13,7 +13,7 @@ namespace FilmsManagement.Infrastructure.Http.DataModels
         public string Country { get; set; }
 
         [JsonProperty("runtimeMins")]
-        public int DurationMins { get; set; }
+        public int? DurationMins { get; set; }
 
         [JsonProperty("genresList")]
         public IEnumerable<MovieGenreDataModel> Genres { get; set; }

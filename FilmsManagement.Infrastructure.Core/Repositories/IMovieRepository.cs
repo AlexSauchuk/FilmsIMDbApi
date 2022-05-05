@@ -1,15 +1,13 @@
-﻿using FilmsManagement.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using FilmsManagement.Domain.Models;
 
 namespace FilmsManagement.Infrastructure.Core.Repositories
 {
     public interface IMovieRepository
     {
-        Task<IBaseMovie> GetMovieByIdAsync(Guid userId, CancellationToken cancellationToken);
+        Task<IMovie> GetMovieByIdAsync(string id, CancellationToken cancellationToken);
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

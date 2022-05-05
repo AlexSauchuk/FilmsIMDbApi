@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,6 +27,18 @@ namespace FilmsManagement.Infrastructure.Sql.Repositories
             return domainModels;
         }
 
+        public async Task<IReadOnlyList<IMovie>> GetUserUnwatchedMoviesAsync(User user, CancellationToken cancellationToken)
+        {
+            var userModel = await Context.Users.FirstOrDefaultAsync(model => model.Id.Equals(user.Id), cancellationToken);
+
+            IReadOnlyList<IMovie> domainModels = userModel?.WatchList?
+                .Where(x => !x.Watched)
+                .Select(x => x.Film)
+                .ToDomainModel();
+
+            return domainModels;
+        }
+
         public async Task AddUserWatchListMovieAsync(User user, IMovie movie, CancellationToken cancellationToken)
         {
             if (!movie.Id.HasValue)
@@ -52,7 +63,10 @@ namespace FilmsManagement.Infrastructure.Sql.Repositories
             var userModel = await Context.Users.FirstOrDefaultAsync(model => model.Id.Equals(user.Id), cancellationToken);
 
             userModel.WatchList ??= new List<UserWatchListMovieModel>();
-            userModel.WatchList.Add(sqlModel);
+            if (!userModel.WatchList.Any(x => x.FilmId.Equals(sqlModel.FilmId) && x.UserId.Equals(sqlModel.UserId)))
+            {
+                userModel.WatchList.Add(sqlModel);
+            }
         }
 
         public async Task MarkMovieWatchedAsync(User user, IMovie movie, CancellationToken cancellationToken)

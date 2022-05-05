@@ -29,5 +29,11 @@ namespace FilmsManagement.DomainServices
 
             return user;
         }
+
+        public Task<User> GetUserByMailAsync(string userMail, CancellationToken cancellationToken)
+        {
+            return _userRepository.GetUserByMailAsync(userMail, cancellationToken)
+                ?? throw new UserNotFoundException($"User with email {userMail} was not found");
+        }
     }
 }

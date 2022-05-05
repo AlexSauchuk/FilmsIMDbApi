@@ -14,5 +14,9 @@ namespace FilmsManagement.Infrastructure.Core.Repositories
         Task<IReadOnlyList<IBaseMovie>> SearchSeriesByTitleAsync(string title, CancellationToken cancellationToken);
 
         Task<IMovie> GetFilmByIdAsync(string id, CancellationToken cancellationToken);
+
+        Task<MovieWikipedia> GetFilmWikipedia(string id, CancellationToken cancellationToken);
+
+        Task<MoviePoster> GetFilmPoster(string id, CancellationToken cancellationToken);
     }
 }

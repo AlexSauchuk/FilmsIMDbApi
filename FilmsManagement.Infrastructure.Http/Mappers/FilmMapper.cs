@@ -11,7 +11,7 @@ namespace FilmsManagement.Infrastructure.Http.Mappers
             {
                 ExternalId = model.Id,
                 Country = model.Country,
-                DurationMins = model.DurationMins,
+                DurationMins = model.DurationMins ?? 0,
                 Genres = model.Genres.ToDomainModel(),
                 ProductionYear = model.ProductionYear,
                 Rating = model.Rating,

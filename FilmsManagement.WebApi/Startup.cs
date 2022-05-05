@@ -1,6 +1,7 @@
+using FilmsManagement.DependencyModules;
+using FilmsManagement.DomainServices;
 using FilmsManagement.Utility;
 using FilmsManagement.WebApi.Errors;
-using FilmsManagement.DependencyModules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,8 @@ namespace FilmsManagement.WebApi
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddTransient<IExceptionHandler, ExceptionHandler>();
 
+            services.AddHostedService<NotificationScheduleService>();
+
             RegisterDependencies(services);
         }
 
@@ -40,6 +43,7 @@ namespace FilmsManagement.WebApi
 
             app.UseFilmsManagementExceptionHandler();
 
+            app.UsePathBase("/api");
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -60,6 +64,7 @@ namespace FilmsManagement.WebApi
             services
                 .RegisterMovieDomainService()
                 .RegisterMovieSearchDomainService()
+                .RegisterNotificationDomainService()
                 .RegisterUserWatchListDomainService()
                 .RegisterUtilities();
         }

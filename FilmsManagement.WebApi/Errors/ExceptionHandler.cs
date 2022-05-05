@@ -49,8 +49,8 @@ namespace FilmsManagement.WebApi.Errors
                     errorResponseModel = new ErrorResponseModel
                     {
                         HttpStatusCode = HttpStatusCode.BadRequest,
-                        Description = "",
-                        Message = $"Movie was not found. Id: {ex.Message}"
+                        Description = "Movie was not found in IMDb data",
+                        Message = ex.Message
                     };
                     break;
                 case UserNotFoundException ex:

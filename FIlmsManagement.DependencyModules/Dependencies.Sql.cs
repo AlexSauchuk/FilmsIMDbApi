@@ -14,6 +14,12 @@ namespace FilmsManagement.DependencyModules
             return services;
         }
 
+        public static IServiceCollection RegisterMovieRepository(this IServiceCollection services)
+        {
+            services.RegisterSqlRepository<IMovieRepository, MovieRepository, FilmsManagementContext>();
+            return services;
+        }
+
         public static IServiceCollection RegisterUserRepository(this IServiceCollection services)
         {
             services.RegisterSqlRepository<IUserRepository, UserRepository, FilmsManagementContext>();

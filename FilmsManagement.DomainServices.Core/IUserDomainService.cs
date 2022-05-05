@@ -6,6 +6,8 @@ namespace FilmsManagement.DomainServices.Core
 {
     public interface IUserDomainService
     {
+        Task<User> GetUserByMailAsync(string userMail, CancellationToken cancellationToken);
+
         Task<User> GetUserByIdAsync(string userId, CancellationToken cancellationToken);
     }
 }

@@ -9,6 +9,8 @@ namespace FilmsManagement.Infrastructure.Core.Repositories
     {
         Task<User> GetUserByIdAsync(Guid userId, CancellationToken cancellationToken);
 
+        Task<User> GetUserByMailAsync(string mail, CancellationToken cancellationToken);
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

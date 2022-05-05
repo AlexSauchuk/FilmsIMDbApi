@@ -12,6 +12,7 @@ using FilmsManagement.Infrastructure.Core.Exceptions;
 using FilmsManagement.Infrastructure.Http.DataModels;
 using FilmsManagement.Infrastructure.Http.Mappers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FilmsManagement.Infrastructure.Http.Repositories
 {
@@ -50,13 +51,31 @@ namespace FilmsManagement.Infrastructure.Http.Repositories
             return result.ToDomainModel();
         }
 
+        public async Task<MovieWikipedia> GetFilmWikipedia(string id, CancellationToken cancellationToken)
+        {
+            var searchFilmUrl = $"{_configuration.Url}/Wikipedia/{_configuration.ApiKey}/{id}";
+
+            var result = await SendSearchRequest<MovieWikipediaDataModel>(searchFilmUrl, HttpMethod.Get, cancellationToken);
+
+            return result.ToDomainModel();
+        }
+
+        public async Task<MoviePoster> GetFilmPoster(string id, CancellationToken cancellationToken)
+        {
+            var searchFilmUrl = $"{_configuration.Url}/Posters/{_configuration.ApiKey}/{id}";
+
+            var result = await SendSearchRequest<MoviePosterDataModel>(searchFilmUrl, HttpMethod.Get, cancellationToken);
+
+            return result.ToDomainModel();
+        }
+
         private async Task<IReadOnlyList<IBaseMovie>> SearchAsync(string searchQuery, string searchType, CancellationToken cancellationToken)
         {
             var searchFilmUrl = $"{_configuration.Url}/{searchType}/{_configuration.ApiKey}/{searchQuery}";
 
             var searchResult = await SendSearchRequest<SearchResultDataModel>(searchFilmUrl, HttpMethod.Get, cancellationToken);
 
-            return searchResult.Results.ToDomainModel().ToList();
+            return searchResult.Results.ToDomainModel()?.ToList();
         }
 
         private async Task<T> SendSearchRequest<T>(string url, HttpMethod method, CancellationToken cancellationToken)
@@ -85,7 +104,14 @@ namespace FilmsManagement.Infrastructure.Http.Repositories
                 }
             }
 
-            return content != null ? JsonConvert.DeserializeObject<T>(content) : default;
+            if (content != null)
+            {
+                var title = JObject.Parse(content).Value<string>("title");
+                if (string.IsNullOrEmpty(title))
+                    throw new MovieNotFoundException("IMDb doesn't contain movie with such id");
+            }
+
+            return content != null  ? JsonConvert.DeserializeObject<T>(content) : default;
         }
     }
 }

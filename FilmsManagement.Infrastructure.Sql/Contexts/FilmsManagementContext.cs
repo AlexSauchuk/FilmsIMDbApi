@@ -25,7 +25,7 @@ namespace FilmsManagement.Infrastructure.Sql.Contexts
             modelBuilder.Entity<UserModel>().HasData(new UserModel 
             {
                 Id = Guid.NewGuid(),
-                Mail = "alexandr.sauchuk@gmail.com",
+                Mail = "alexandrsavchuk.97@gmail.com",
                 Nickname = "Alex0319742"
             });
 

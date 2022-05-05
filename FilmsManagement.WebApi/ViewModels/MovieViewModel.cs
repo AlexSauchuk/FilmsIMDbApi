@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace FilmsManagement.WebApi.ViewModels
 {
@@ -11,13 +10,13 @@ namespace FilmsManagement.WebApi.ViewModels
 
         public string Country { get; set; }
 
-        public int DurationMins { get; set; }
+        public int? DurationMins { get; set; }
 
         public IEnumerable<MovieGenreViewModel> Genres { get; set; }
 
-        public short ProductionYear { get; set; }
+        public short? ProductionYear { get; set; }
 
-        public float Rating { get; set; }
+        public float? Rating { get; set; }
 
         public int? SeasonsCount { get; set; }
 

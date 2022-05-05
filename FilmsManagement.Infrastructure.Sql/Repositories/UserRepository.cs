@@ -23,6 +23,13 @@ namespace FilmsManagement.Infrastructure.Sql.Repositories
             return model?.ToDomainModel() ?? null;
         }
 
+        public async Task<User> GetUserByMailAsync(string mail, CancellationToken cancellationToken)
+        {
+            var model = await Context.Users.FirstOrDefaultAsync(user => user.Mail.Equals(mail), cancellationToken);
+
+            return model?.ToDomainModel() ?? null;
+        }
+
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
             return Context.SaveChangesAsync(cancellationToken);

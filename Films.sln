@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.WebApi", "FilmsManagement.WebApi\FilmsManagement.WebApi.csproj", "{67D57EC8-6F90-4699-BE17-A7F6A72B4688}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Domain", "FilmsManagement.Domain\FilmsManagement.Domain.csproj", "{8F08A156-8779-4EAC-BC84-F6B560D6C2EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.DomainServices", "FilmsManagement.DomainServices\FilmsManagement.DomainServices.csproj", "{A46747F1-54D7-4936-B5D9-EC7AD5D26040}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Infrastructure.MSSql", "FilmsManagement.Infrastructure.MSSql\FilmsManagement.Infrastructure.MSSql.csproj", "{0ED3C845-6F34-4A6B-BFD0-C230F6950A72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Infrastructure.Core", "FilmsManagement.Infrastructure.Core\FilmsManagement.Infrastructure.Core.csproj", "{B558FF3D-D29A-4866-B60F-CA512A833A26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Infrastructure.Sql", "FilmsManagement.Infrastructure.Sql\FilmsManagement.Infrastructure.Sql.csproj", "{3F2EA98A-55D1-41DD-B730-4964B3B5A261}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Utility", "FilmsManagement.Utility\FilmsManagement.Utility.csproj", "{B7C58B54-F49B-43B7-9C18-DBF34FD1A754}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.Infrastructure.Http", "FilmsManagement.Infrastructure.Http\FilmsManagement.Infrastructure.Http.csproj", "{26432961-8076-4EED-8812-0B266A103113}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.DomainServices.Core", "FilmsManagement.DomainServices.Core\FilmsManagement.DomainServices.Core.csproj", "{C4E7AF16-FCD4-448A-B97F-BACA6D718BFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsManagement.DependencyModules", "FIlmsManagement.DependencyModules\FilmsManagement.DependencyModules.csproj", "{246A8A3E-F8EA-4DF7-A930-F73F58AB603B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67D57EC8-6F90-4699-BE17-A7F6A72B4688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D57EC8-6F90-4699-BE17-A7F6A72B4688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D57EC8-6F90-4699-BE17-A7F6A72B4688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D57EC8-6F90-4699-BE17-A7F6A72B4688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F08A156-8779-4EAC-BC84-F6B560D6C2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F08A156-8779-4EAC-BC84-F6B560D6C2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F08A156-8779-4EAC-BC84-F6B560D6C2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F08A156-8779-4EAC-BC84-F6B560D6C2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46747F1-54D7-4936-B5D9-EC7AD5D26040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46747F1-54D7-4936-B5D9-EC7AD5D26040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46747F1-54D7-4936-B5D9-EC7AD5D26040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46747F1-54D7-4936-B5D9-EC7AD5D26040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED3C845-6F34-4A6B-BFD0-C230F6950A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED3C845-6F34-4A6B-BFD0-C230F6950A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED3C845-6F34-4A6B-BFD0-C230F6950A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED3C845-6F34-4A6B-BFD0-C230F6950A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B558FF3D-D29A-4866-B60F-CA512A833A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B558FF3D-D29A-4866-B60F-CA512A833A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B558FF3D-D29A-4866-B60F-CA512A833A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B558FF3D-D29A-4866-B60F-CA512A833A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2EA98A-55D1-41DD-B730-4964B3B5A261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2EA98A-55D1-41DD-B730-4964B3B5A261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2EA98A-55D1-41DD-B730-4964B3B5A261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2EA98A-55D1-41DD-B730-4964B3B5A261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C58B54-F49B-43B7-9C18-DBF34FD1A754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C58B54-F49B-43B7-9C18-DBF34FD1A754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C58B54-F49B-43B7-9C18-DBF34FD1A754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C58B54-F49B-43B7-9C18-DBF34FD1A754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26432961-8076-4EED-8812-0B266A103113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26432961-8076-4EED-8812-0B266A103113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26432961-8076-4EED-8812-0B266A103113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26432961-8076-4EED-8812-0B266A103113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E7AF16-FCD4-448A-B97F-BACA6D718BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E7AF16-FCD4-448A-B97F-BACA6D718BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E7AF16-FCD4-448A-B97F-BACA6D718BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E7AF16-FCD4-448A-B97F-BACA6D718BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246A8A3E-F8EA-4DF7-A930-F73F58AB603B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246A8A3E-F8EA-4DF7-A930-F73F58AB603B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246A8A3E-F8EA-4DF7-A930-F73F58AB603B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246A8A3E-F8EA-4DF7-A930-F73F58AB603B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49C58B92-5CDD-4A82-97C2-44F77109A17C}
+	EndGlobalSection
+EndGlobal

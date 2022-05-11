@@ -28,8 +28,9 @@ namespace FilmsManagement.WebApi
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddTransient<IExceptionHandler, ExceptionHandler>();
-
             services.AddHostedService<NotificationScheduleService>();
+
+            services.ConfigureSwagger(Configuration);
 
             RegisterDependencies(services);
         }
@@ -56,7 +57,7 @@ namespace FilmsManagement.WebApi
 
         private void ConfigureApp(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //app.EnableSwagger(Configuration);
+            app.EnableSwagger(Configuration);
         }
 
         private void RegisterDependencies(IServiceCollection services)

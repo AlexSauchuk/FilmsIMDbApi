@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -26,13 +27,30 @@ namespace FilmsManagement.Utility.Swagger
             });
 
             app.UseSwaggerUI(options => {
-                options.SwaggerEndpoint($"/swagger/swagger.json", "Films management api");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = string.Empty;
             });
         }
 
         public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services)
         {
-            services.AddSwaggerGen(options => {
+            services.AddSwaggerGen();
+
+            return services;
+        }
+
+        public static IServiceCollection AddSwaggerDocumentation<T>(this IServiceCollection services, string xmlDocumentationPath)
+            where T : IDocumentFilter
+        {
+            services.AddSwaggerDocumentation();
+
+            OpenApiSchema TimeSpanSchemaFactory() => new OpenApiSchema { Type = "string", Format = "time-span", Example = new OpenApiString(TimeSpan.Zero.ToString()) };
+            services.ConfigureSwaggerGen(s =>
+            {
+                s.MapType<TimeSpan>(TimeSpanSchemaFactory);
+                s.MapType<TimeSpan?>(TimeSpanSchemaFactory);
+                s.IncludeXmlComments(xmlDocumentationPath);
+                s.DocumentFilter<T>();
             });
 
             return services;

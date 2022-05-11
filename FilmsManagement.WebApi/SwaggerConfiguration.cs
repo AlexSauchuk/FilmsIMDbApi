@@ -21,7 +21,7 @@ namespace FilmsManagement.WebApi
 
             var xmlDocumentationPath = Path.Combine(AppContext.BaseDirectory, $"{typeof(ServerListDocumentFilter).Assembly.GetName().Name}.xml");
 
-            services.AddSwaggerDocumentation();
+            services.AddSwaggerDocumentation<ServerListDocumentFilter>(xmlDocumentationPath);
 
             return services;
         }
@@ -50,7 +50,7 @@ namespace FilmsManagement.WebApi
         {
             swaggerDoc.Servers = new List<OpenApiServer>
             {
-                new OpenApiServer { Description = "local", Url = "http://localhost:12345" }
+                new OpenApiServer { Description = "local", Url = "http://localhost:58932" }
             };
             swaggerDoc.Info.Title = "Films management API";
         }

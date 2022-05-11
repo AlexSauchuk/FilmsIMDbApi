@@ -16,6 +16,11 @@ namespace FilmsManagement.WebApi.Controllers
             _userWatchListDomainService = userWatchListDomainService;
         }
 
+        /// <summary>
+        /// Get user watch list movies and tv series
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>List of user watch list movies and tv series</returns>
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetUserWatchList(
@@ -29,6 +34,12 @@ namespace FilmsManagement.WebApi.Controllers
             return Ok(viewModels);
         }
 
+        /// <summary>
+        /// Add movie or tv serie to user watch list
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{movieId}")]
         public async Task<IActionResult> AddMovieToWatchList(
@@ -42,9 +53,15 @@ namespace FilmsManagement.WebApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Mark movie or tv serie in user watch list as watched
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{movieId}")]
-        public async Task<IActionResult> DeleteMovieFromWatchList(
+        public async Task<IActionResult> MarkMovieInWatchList(
             [FromRoute] string userId
             , [FromRoute] string movieId
             , CancellationToken cancellationToken

@@ -107,7 +107,8 @@ namespace FilmsManagement.Infrastructure.Http.Repositories
             if (content != null)
             {
                 var title = JObject.Parse(content).Value<string>("title");
-                if (string.IsNullOrEmpty(title))
+                var searchType = JObject.Parse(content).Value<string>("searchType");
+                if (string.IsNullOrEmpty(searchType) && string.IsNullOrEmpty(title))
                     throw new MovieNotFoundException("IMDb doesn't contain movie with such id");
             }
 

@@ -16,6 +16,11 @@ namespace FilmsManagement.WebApi.Controllers
             _movieSearchDomainService = movieSearchDomainService;
         }
 
+        /// <summary>
+        /// Search a movie and tv series by title.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns>List of movies and tv series with passed title</returns>
         [HttpGet]
         [Route("{title}")]
         public async Task<IActionResult> SearchByTitle([FromRoute] string title, CancellationToken cancellationToken)
@@ -26,6 +31,11 @@ namespace FilmsManagement.WebApi.Controllers
             return Ok(viewModel);
         }
 
+        /// <summary>
+        /// Search a film by title.
+        /// </summary>
+        /// <param name="filmTitle"></param>
+        /// <returns>List of movies with passed title</returns>
         [HttpGet]
         [Route("films/{filmTitle}")]
         public async Task<IActionResult> GetFilmsByTitle([FromRoute] string filmTitle, CancellationToken cancellationToken)
@@ -36,6 +46,11 @@ namespace FilmsManagement.WebApi.Controllers
             return Ok(viewModel);
         }
 
+        /// <summary>
+        /// Search a tv series by title.
+        /// </summary>
+        /// <param name="seriesTitle"></param>
+        /// <returns>List of tv series with passed title</returns>
         [HttpGet]
         [Route("series/{seriesTitle}")]
         public async Task<IActionResult> GetSeriesByTitle([FromRoute] string seriesTitle, CancellationToken cancellationToken)
